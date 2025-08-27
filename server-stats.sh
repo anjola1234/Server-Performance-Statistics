@@ -55,6 +55,3 @@ ps -eo pid,ppid,user,cmd,%cpu,%mem --sort=-%cpu | head -n 6
 
 echo -e "\n===TOP 5 MEMORY PROCESSES==="
 ps -eo pid,ppid,user,cmd,%cpu,%mem --sort=-%mem | head -n 6
-
-sudo apt install
-sudo apt install build-essential dkms linux-headers-$(uname -r)
