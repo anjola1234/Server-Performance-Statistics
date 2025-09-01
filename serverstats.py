@@ -2,7 +2,6 @@
 
 import psutil
 import platform 
-import time
 
 def cpu_usage():
     print("===TOTAL CPU USAGE===")
@@ -44,11 +43,8 @@ def disk_usage():
 
 
 
-
 def top_processes():
     print("\n===TOP 5 CPU PROCESSES===")
-
-
     processes = []
     for p in psutil.process_iter(["pid", "ppid", "username", "exe", "cpu_percent","memory_percent"]):
 
