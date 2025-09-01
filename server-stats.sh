@@ -1,5 +1,10 @@
 #!/bin/bash
 
+LOGFILE="server-stats.log"
+
+{
+echo -e "\n=== REPORT $(date '+%Y-%m-%d %H:%M:%S') ==="
+
 echo "===TOTAL CPU USAGE==="
 mpstat 1 1 | awk '/Average:/ {print 100-$NF"%used"}'
 
@@ -55,3 +60,5 @@ ps -eo pid,ppid,user,cmd,%cpu,%mem --sort=-%cpu | head -n 6
 
 echo -e "\n===TOP 5 MEMORY PROCESSES==="
 ps -eo pid,ppid,user,cmd,%cpu,%mem --sort=-%mem | head -n 6
+
+} | tee -a "$LOGFILE"
